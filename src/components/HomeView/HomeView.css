@@ -1,0 +1,10 @@
+.tituloPpal {
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+}
+.logoPpal {
+    width: 300px; 
+}

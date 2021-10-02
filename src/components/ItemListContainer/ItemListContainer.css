@@ -1,0 +1,10 @@
+.productos {
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+    text-align: center;    
+}
+
+.cantP {
+    width: 60px;
+}
