@@ -7,14 +7,15 @@ import { useParams } from 'react-router-dom';
 export const ItemListContainer = ({productos}) => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState([]);
-    const {category} = useParams()
+    const {categoryId} = useParams()
+    console.log(categoryId)
 
     useEffect(() => {
         setLoading(true);
         pedirProductos()
             .then((res) => {
-                if (category) {
-                    setItems( res.filter( prod => prod.categ === category) )
+                if (categoryId) {
+                    setItems( res.filter( prod => prod.categ == categoryId) )
                 } else {
                     setItems( res )
                 }
@@ -23,11 +24,11 @@ export const ItemListContainer = ({productos}) => {
             .finally(()=> {
                 setLoading(false)
             })
-    }, [category])
+    }, [categoryId])
 
     return (
         <>
-            <div className="container-fluid" style={{marginLeft:'50px'}}>
+            <div className="container-fluid" style={{margin:'50px'}}>
                 <div className="row align-items-center">
                     <div className="col">
                         {(loading) 

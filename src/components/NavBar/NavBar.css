@@ -107,3 +107,9 @@
     font-weight: normal;
     color:black;
 }
+
+.activeLink {
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 8px;
+}

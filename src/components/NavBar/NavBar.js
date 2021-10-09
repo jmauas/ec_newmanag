@@ -2,6 +2,7 @@ import React from "react";
 import './NavBar.css';
 import { FaFutbol, FaCaretSquareRight as Flecha, FaScroll, FaBirthdayCake as Torta, FaShoppingCart as Carro} from 'react-icons/fa';
 import {TiHome} from 'react-icons/ti';
+import { NavLink } from 'react-router-dom'
 
 export const NavBar = ({nombreEmpresa, urlLogoPpal}) => {
     return (
@@ -13,14 +14,14 @@ export const NavBar = ({nombreEmpresa, urlLogoPpal}) => {
                 <p className="s-nombre">{nombreEmpresa}</p>
 
                 <ul>
-                    <li><a href="#/" onClick="" className="items"><TiHome color="#FF305D" size="25px"/> Inicio</a></li>
-                    <li><a href="#/" onClick="filtrar(2)" className="items"><FaFutbol color="#00CBF4" size="25px"/> Cotillón</a></li>
-                    <li><a href="#/" onClick="filtrar(3)" className="items"><FaScroll color="#FFC200" size="25px"/> Papeleria</a></li>
-                    <li><a href="#/" onClick="filtrar(1)" className="items"><Torta color="#FF305D" size="25px"/> Repostería</a></li>
-                    <li><a href="#/" onClick="filtrar(4)" className="items"><FaFutbol color="#FFC200" size="25px"/> Distribución</a></li>
-                    <li><a href="#/" onClick="" className="items"><Carro color="red" size="25px"/> VER CARRITO</a></li>
+                    <li><NavLink activeClassName={'activeLink'} className="items" exact to="/"><TiHome color="#FF305D" size="25px"/> Inicio</NavLink></li>
+                    <li><NavLink activeClassName={'activeLink'} className="items" exact to="/productos/cotillon"><FaFutbol color="#00CBF4" size="25px"/> Cotillón</NavLink></li>
+                    <li><NavLink activeClassName={'activeLink'} className="items" exact to="/productos/papeleria"><FaScroll color="#FFC200" size="25px"/> Papeleria</NavLink></li>
+                    <li><NavLink activeClassName={'activeLink'} className="items" exact to="/productos/reposteria"><Torta color="#FF305D" size="25px"/> Repostería</NavLink></li>
+                    <li><NavLink activeClassName={'activeLink'} className="items" exact to="/productos/distribucion"><FaFutbol color="#FFC200" size="25px"/> Distribución</NavLink></li>
+                    <li><NavLink activeClassName={'activeLink'} className="items" exact to="/carrito"><Carro color="red" size="25px"/> VER CARRITO</NavLink></li>
                 </ul>
-                <img src={urlLogoPpal}  className="s-logo" alt="logoPpal" />
+                <NavLink exact to="/"><img src={urlLogoPpal}  className="s-logo" alt="logoPpal" /></NavLink>
             </nav>
         </>
     );

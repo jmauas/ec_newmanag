@@ -5,7 +5,7 @@ export const stock = [
         precio: 251,
         descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
         img: '/prods/argen-cereal-1kg.jpg',
-        categ: 1
+        categ: 'reposteria'
     },
     {
         id: 2,
@@ -13,7 +13,15 @@ export const stock = [
         precio: 357,
         descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
         img: '/prods/arte-posa-red-ch-1010-20bc.jpg',
-        categ: 1
+        categ: 'reposteria'
+    },
+    {
+        id: 28,
+        nombre: 'BANDERIN FELIZ CUMPLEAÑOS X1',
+        precio: 957,
+        descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
+        img: '/prods/baderin-feliz-cumpleanos-celeste-con-letras-dorado-x1.jpg',
+        categ: 'cotillon'
     },
     {
         id: 3,
@@ -21,7 +29,15 @@ export const stock = [
         precio: 436,
         descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
         img: '/prods/ballina-pastillaje-500grs.jpg',
-        categ: 1
+        categ: 'reposteria'
+    },
+    {
+        id: 22,
+        nombre: 'GORRO EGRESADO PLÁSTICO X1',
+        precio: 341,
+        descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
+        img: '/prods/gorro-egresado-plastico-x1.jpg',
+        categ: 'cotillon'
     },
     {
         id: 4,
@@ -29,7 +45,15 @@ export const stock = [
         precio: 185,
         descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
         img: '/prods/circe-confi-plata-n5.jpg',
-        categ: 1
+        categ: 'reposteria'
+    },
+    {
+        id: 32,
+        nombre: 'PELOTA PELOTERO X1',
+        precio: 18,
+        descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
+        img: '/prods/pelota-pelotero-x1.jpg',
+        categ: 'cotillon'
     },
     {
         id: 5,
@@ -37,7 +61,15 @@ export const stock = [
         precio: 50,
         descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
         img: '/prods/codeland-relleno-nougat-500grs.jpg',
-        categ: 1
+        categ: 'reposteria'
+    },
+    {
+        id: 47,
+        nombre: 'VARA LUMINOSA COLOR 50 CM',
+        precio: 357,
+        descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
+        img: '/prods/vara-luminosa-color-50cm.jpg',
+        categ: 'cotillon'
     },
     {
         id: 6,
@@ -45,6 +77,6 @@ export const stock = [
         precio: 323,
         descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
         img: '/prods/deli-arts-laminas-gde-surt.jpg',
-        categ: 1
+        categ: 'reposteria'
     }
 ]
