@@ -4,11 +4,10 @@ import {pedirProductos} from '../../helpers/pedirProductos'
 import { ItemsList } from "./itemsList";
 import { useParams } from 'react-router-dom';
 
-export const ItemListContainer = ({productos}) => {
+export const ItemListContainer = ({msgBusqueda}) => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState([]);
     const {category} = useParams()
-
     useEffect(() => {
         setLoading(true);
         pedirProductos()
@@ -27,16 +26,14 @@ export const ItemListContainer = ({productos}) => {
 
     return (
         <>
-            <div className="container-fluid" style={{marginLeft:'50px'}}>
+            <div className="container-fluid" id="listContainer">
                 <div className="row align-items-center">
-                    <div className="col">
                         {(loading) 
-                            ? <p className="productos">{productos}</p>
+                            ? <p className="productos">{msgBusqueda}</p>
                             : <>
                                 <ItemsList productos={items}/>    
                             </>
                         }
-                    </div>
                 </div>
             </div>
         </>

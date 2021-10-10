@@ -1,24 +1,56 @@
 import React from 'react'
-import './ItemListContainer.css';
-import {Card, Button, Form, Stack} from 'react-bootstrap'
-import { FaShoppingCart as Carro} from 'react-icons/fa';
+import './ItemDetalleContainer.css';
+import {Button} from 'react-bootstrap'
+import { FaCartPlus as Carro, FaBackspace as Back, FaCashRegister as Pagar } from 'react-icons/fa';
+import { useHistory } from 'react-router';
 
-
-export const Item = ( {id, nombre, precio, img, descrip} ) => {
-
+export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) => {
+    const {goBack} = useHistory();
     return (
-        <Card border="info" style={{ width: '18rem' }} className="m-3">
-            <Card.Img variant="top" src={img} />
-            <Card.Body>
-                <Card.Title>{nombre}</Card.Title>
-                <Card.Text>{descrip}</Card.Text>
-                <Card.Title>Precio: $ {precio}-</Card.Title>
-                <Stack direction="horizontal" gap={3}>
-                    <Form.Control type="number" defaultValue="1" className="cantP"/>
-                    <div className="vr" />
-                    <Button variant="secondary" className="botonCarro"><Carro color="#FF305D" size="25px"/> Agregar</Button>
-                </Stack>
-            </Card.Body>
-        </Card>
+        <div className="container">
+            <div className="row">
+                <div className="col">
+                    <img src={img}  className="imgPpal" alt={nombre} />
+                </div>
+                <div className="col">
+                    <div className="row">
+                        <h2 className="tituloItem">{nombre}</h2>
+                    </div>
+                    <hr/>
+                    <div className="row">
+                        <p className="subTituloItem">SKU {id} --- {categ}</p>
+                    </div>
+                    <hr/>
+                    <div className="row">
+                        <p className="subTituloItem">Cantidad Disponible {stock} </p>
+                    </div>
+                    <hr/>
+                    <div className="row">
+                        <p className="precioDetalle">Precio: $ {precio}-</p>
+                    </div>                    
+                    <div className="row align-items-center mt-5">
+                        <div className="col col-4">
+                            <span className="subTituloItem">Cantidad : </span><input type="number" defaultValue="1" className="cantP"/>
+                        </div>                    
+                        <div className="col col-4">
+                            <Button variant="secondary"><Carro color="white" size="25px"/> Agregar al Carrito</Button>
+                        </div> 
+                        <div className="col col-4">
+                            <Button variant="success"><Pagar color="white" size="25px"/> Ir a Pagar</Button>
+                        </div>                    
+                    </div>     
+                    <div className="row align-items-center mt-5">                  
+                        <div className="col col-4">
+                            <Button variant="secondary" onClick={() => goBack()}><Back color="white" size="25px"/> Volver Atras</Button>
+                        </div>                  
+                    </div>                    
+                </div>
+            </div>
+            <div className="row">
+                <div className="row">
+                    <p className="descrip">{descrip}</p>
+                </div>
+            </div>
+        </div>
     )
 }

@@ -1,45 +1,37 @@
 import React, {useEffect, useState} from "react";
-import './ItemListContainer.css';
+import './ItemDetalleContainer.css';
 import {pedirProductos} from '../../helpers/pedirProductos' 
-import { ItemsList } from "./itemsList";
+import { ItemDetalle } from "./ItemDetalle";
 import { useParams } from 'react-router-dom';
 
-export const ItemListContainer = ({productos}) => {
-    const [items, setItems] = useState([]);
+export const ItemDetalleContainer = () => {
+    const [item, setItem] = useState(null);
     const [loading, setLoading] = useState([]);
-    const {categoryId} = useParams()
-    console.log(categoryId)
+    const {itemId} = useParams();
 
     useEffect(() => {
         setLoading(true);
         pedirProductos()
             .then((res) => {
-                if (categoryId) {
-                    setItems( res.filter( prod => prod.categ == categoryId) )
+                if (itemId) {
+                    setItem(res.find(prod => prod.id === Number(itemId)))
+                    console.log(item)
                 } else {
-                    setItems( res )
+                    setItem();
                 }
             })
             .catch((err) => console.log(err))
             .finally(()=> {
                 setLoading(false)
             })
-    }, [categoryId])
+    }, [itemId])
 
     return (
         <>
-            <div className="container-fluid" style={{margin:'50px'}}>
-                <div className="row align-items-center">
-                    <div className="col">
-                        {(loading) 
-                            ? <p className="productos">{productos}</p>
-                            : <>
-                                <ItemsList productos={items}/>    
-                            </>
-                        }
-                    </div>
-                </div>
-            </div>
+            {
+                loading ? <p className="productos">Cargando Detalles del Producto ...</p>
+                : <ItemDetalle {...item}/>    
+            }
         </>
     );
 }

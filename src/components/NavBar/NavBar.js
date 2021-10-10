@@ -4,10 +4,27 @@ import { FaFutbol, FaCaretSquareRight as Flecha, FaScroll, FaBirthdayCake as Tor
 import {TiHome} from 'react-icons/ti';
 import { NavLink } from 'react-router-dom'
 
+
+const mouseEnterHandler = () => {
+    mouseHandler(true);
+} 
+const mouseLeaveHandler = () => {
+    mouseHandler(false);
+} 
+const mouseHandler = (show) => {
+    let cont = document.getElementById('contenidoPpal');
+    let margin = '50px';
+    if (show)  margin = '200px';        
+    cont.style.marginLeft = margin;
+}
+
 export const NavBar = ({nombreEmpresa, urlLogoPpal}) => {
     return (
         <>
-            <nav className="sideBar">
+            <nav className="sideBar"
+                onMouseEnter={mouseEnterHandler}
+                onMouseLeave={mouseLeaveHandler}
+            >
                 <div className="barraNegra">'
                     <Flecha color="#FF305D" size="40px"/>    
                 </div>
