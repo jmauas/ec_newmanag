@@ -7,13 +7,13 @@ import { useHistory } from 'react-router';
 export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) => {
     const {goBack} = useHistory();
     return (
-        <div className="container">
+        <div className="container" id="contenedorDetalle">
             <div className="row">
                 <div className="col">
                     <img src={process.env.PUBLIC_URL+img}  className="imgPpal" alt={nombre} />
                 </div>
                 <div className="col">
-                    <div className="row">
+                    <div className="row mt-3">
                         <h2 className="tituloItem">{nombre}</h2>
                     </div>
                     <hr/>
@@ -26,16 +26,16 @@ export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) 
                     </div>
                     <hr/>
                     <div className="row">
-                        <p className="precioDetalle">Precio: $ {precio}-</p>
+                        <p className="precioDetalle">Precio: $ {precio} -</p>
                     </div>                    
                     <div className="row align-items-center mt-5">
-                        <div className="col col-4">
+                        <div className="col col-6 col-m-4">
                             <span className="subTituloItem">Cantidad : </span><input type="number" defaultValue="1" className="cantP"/>
                         </div>                    
-                        <div className="col col-4">
+                        <div className="col col-6 col-m-4">
                             <Button variant="secondary"><Carro color="white" size="25px"/> Agregar al Carrito</Button>
                         </div> 
-                        <div className="col col-4">
+                        <div className="col col-6 col-m-4">
                             <Button variant="success"><Pagar color="white" size="25px"/> Ir a Pagar</Button>
                         </div>                    
                     </div>     

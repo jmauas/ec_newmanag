@@ -14,6 +14,8 @@ const mouseLeaveHandler = () => {
 const mouseHandler = (show) => {
     let cont = document.getElementById('contenidoPpal');
     let margin = '50px';
+    console.log(window.screen.width)
+    if (window.screen.width) margin = '25px';
     if (show)  margin = '200px';        
     cont.style.marginLeft = margin;
 }

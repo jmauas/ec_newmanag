@@ -22,17 +22,6 @@
     text-transform: unset;
 }
 
-
-.productos {
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 22px;
-    text-align: center;    
-}
-
-.cantP {
-    width: 60px;
-}
 .precioDetalle {
     text-align: end;
     padding: 10px;
@@ -52,4 +41,17 @@
     font-family: 'Rubik', sans-serif;
     padding: 2px;
     font-size: 22px
+}
+
+
+@media (max-width: 400px) {
+    .imgPpal {
+        width: 18rem;
+        height: 18rem;
+    }
+    .precioDetalle {
+        padding: 5px;
+        font-size: 28px;
+        font-weight: 400;
+    }
 }
