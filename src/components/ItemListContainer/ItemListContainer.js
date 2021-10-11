@@ -55,7 +55,7 @@ export const ItemListContainer = ({msgBusqueda}) => {
           handleBusqueda();
         }
     }
-            
+
     return (
         <>
             <div className="container-fluid" id="listContainer">
@@ -70,7 +70,7 @@ export const ItemListContainer = ({msgBusqueda}) => {
                                         </Col>
                                         <Col className="col-4">
                                             <button className="btn btn-secondary" onClick={handleBusqueda}><FaSearch/> Buscar</button>
-                                            <button className="btn btn-secondary m-2" onClick={handleLimpiar}><FaSync/> Limpiar</button>
+                                            <button className="btn btn-secondary m-2" id="btnLimpiar" onClick={handleLimpiar}><FaSync/> Limpiar</button>
                                         </Col>
                                     </Row>
                                 </Container>
