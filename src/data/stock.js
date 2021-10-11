@@ -19,7 +19,7 @@ export const stock = [
     },
     {
         id: 28,
-        nombre: 'Banderin Feliz Cimpleaño X1',
+        nombre: 'Banderin Feliz Cumpleaños X1',
         precio: 957,
         descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
         img: '/prods/baderin-feliz-cumpleanos-celeste-con-letras-dorado-x1.jpg',
