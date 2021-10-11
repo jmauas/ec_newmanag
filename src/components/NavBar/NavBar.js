@@ -38,7 +38,7 @@ export const NavBar = ({nombreEmpresa, urlLogoPpal}) => {
                     <li><NavLink activeClassName={'activeLink'} className="items" exact to="/productos/distribucion"><FaFutbol color="#FFC200" size="25px"/> Distribución</NavLink></li>
                     <li><NavLink activeClassName={'activeLink'} className="items" exact to="/carrito"><Carro color="red" size="25px"/> VER CARRITO</NavLink></li>
                 </ul>
-                <NavLink exact to="/"><img src={urlLogoPpal}  className="s-logo" alt="logoPpal" /></NavLink>
+                <NavLink exact to="/"><img src={process.env.PUBLIC_URL+'/'+urlLogoPpal}  className="s-logo" alt="logo empresa" /></NavLink>
             </nav>
         </>
     );

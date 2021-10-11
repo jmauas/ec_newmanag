@@ -10,7 +10,7 @@ export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) 
         <div className="container">
             <div className="row">
                 <div className="col">
-                    <img src={img}  className="imgPpal" alt={nombre} />
+                    <img src={process.env.PUBLIC_URL+img}  className="imgPpal" alt={nombre} />
                 </div>
                 <div className="col">
                     <div className="row">

@@ -4,13 +4,12 @@ import {Card, Button} from 'react-bootstrap'
 import { FaPlus} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-
 export const Item = ( {id, nombre, precio, img, categ} ) => {
     return (
         <div className="col col-xs-12 col-s-6 col-m-4 col-l-3 col-xl-2.5">
             <Card className="item-card">
                 <Link to={`/detalle/${id}`}>
-                    <Card.Img variant="top" src={img} className="fotoList"/>
+                    <Card.Img variant="top" src={process.env.PUBLIC_URL + img} className="fotoList" alt={nombre}/>
                 </Link>
                 <Card.Body>
                     <Card.Title className="tituloList">{nombre}</Card.Title>
