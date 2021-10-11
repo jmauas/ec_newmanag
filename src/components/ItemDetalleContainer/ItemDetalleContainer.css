@@ -54,4 +54,9 @@
         font-size: 28px;
         font-weight: 400;
     }
+    .descrip {
+        margin: 10px;
+        font-size: 18px
+    }
+
 }

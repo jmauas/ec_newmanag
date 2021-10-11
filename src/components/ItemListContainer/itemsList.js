@@ -6,7 +6,7 @@ export const ItemsList = ({productos = []}) => {
         <>
             {productos.length>0 
                 ? productos.map((item) => <Item {...item} key={item.id}/>) 
-                : <h2>Sin Productos en Esta Categoria ....</h2>}
+                : <h2>Sin Productos en Esta Categoria / Busqueda ....</h2>}
         </>
     )
 }

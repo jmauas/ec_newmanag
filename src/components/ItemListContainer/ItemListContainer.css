@@ -43,3 +43,21 @@
     border-radius: 15px;
 }
 
+.filaBusqueda {
+    background-color: black;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.tituloBusqueda {
+    background-color: black;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    vertical-align: middle;
+    width: 100%;
+}
+
