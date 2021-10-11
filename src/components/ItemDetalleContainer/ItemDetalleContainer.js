@@ -15,7 +15,6 @@ export const ItemDetalleContainer = () => {
             .then((res) => {
                 if (itemId) {
                     setItem(res.find(prod => prod.id === Number(itemId)))
-                    console.log(item)
                 } else {
                     setItem();
                 }

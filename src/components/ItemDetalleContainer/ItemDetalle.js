@@ -40,7 +40,7 @@ export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) 
                         </div>                    
                     </div>     
                     <div className="row align-items-center mt-5">                  
-                        <div className="col col-4">
+                        <div className="col col-12 col-4">
                             <Button variant="secondary" onClick={() => goBack()}><Back color="white" size="25px"/> Volver Atras</Button>
                         </div>                  
                     </div>                    
