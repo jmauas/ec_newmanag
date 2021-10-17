@@ -25,7 +25,7 @@
 .precioDetalle {
     text-align: end;
     padding: 10px;
-    font-size: 38px;
+    font-size: 34px;
     background-color: #FF305D;
     font-family: 'Rubik', sans-serif;
     color: white;
@@ -34,6 +34,7 @@
 }
 .cantP {
     width: 60px;
+    border:none;
 }
 
 .descrip {

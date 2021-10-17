@@ -11,7 +11,7 @@ export const stock = [
     {
         id: 2,
         nombre: 'Arte Posa Torta Red Chico 1010 20 BC',
-        precio: 357,
+        precio: 3576,
         descrip: 'Descripción detallada del producto que se esta listando en esta sección del e-commerce.',
         img: '/prods/arte-posa-red-ch-1010-20bc.jpg',
         stock: 18,

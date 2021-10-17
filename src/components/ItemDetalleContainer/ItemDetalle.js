@@ -1,11 +1,60 @@
-import React from 'react'
+import React, {useState, useContext} from 'react'
 import './ItemDetalleContainer.css';
-import {Button} from 'react-bootstrap'
-import { FaCartPlus as Carro, FaBackspace as Back, FaCashRegister as Pagar } from 'react-icons/fa';
+import {Alert, Button} from 'react-bootstrap'
+import { FaCartPlus as Carro, FaBackspace as Back, FaCashRegister as Pagar, FaPlus, FaMinus } from 'react-icons/fa';
 import { useHistory } from 'react-router';
+import { CarritoContext } from '../../context/CarritoContext';
+import { Link } from 'react-router-dom';
+import { FormatosContext } from '../../context/FormatosContext';
 
 export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) => {
     const {goBack} = useHistory();
+    const [excede, setExcede] = useState(false);
+    const [cant, setCant] = useState(1);
+    const {addToCarrito, estaEnCarrito} = useContext(CarritoContext);
+    const {formatoSepMiles} = useContext(FormatosContext);
+
+
+    const handleMas = () => {
+        if ((cant + 1) > stock) {
+            setExcede(true);
+        } else {
+            setCant(cant + 1);
+            setExcede(false);
+        }
+    }
+    const handleMenos = () => {
+        if (cant - 1 >0)  setCant(cant - 1)
+        setExcede(false);
+    }
+
+    const handleCant = (e) => {
+        if ((e.target.value) > stock) {
+            setExcede(true);
+            setCant(stock)
+        } else if (e.target.value<=0){
+            setCant(1);
+            setExcede(false);
+        } else {
+            setCant(e.target.value)
+            setExcede(false);
+        }
+    }
+
+    const agregarCarro = () => {
+        const nuevoItem = {
+             id,
+             nombre,
+             precio,
+             img,
+             categ,
+             descrip,
+             stock,
+             cantidad: cant
+        }
+        addToCarrito(nuevoItem);
+    }
+   
     return (
         <div className="container" id="contenedorDetalle">
             <div className="row">
@@ -22,26 +71,43 @@ export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) 
                     </div>
                     <hr/>
                     <div className="row">
-                        <p className="subTituloItem">Cantidad Disponible {stock} </p>
+                        <p className="subTituloItem">Cantidad Disponible: {stock} </p>
                     </div>
                     <hr/>
                     <div className="row">
-                        <p className="precioDetalle">Precio: $ {precio} -</p>
+                        <p className="precioDetalle">Precio: $ {formatoSepMiles(precio, 2)} -</p>
                     </div>                    
                     <div className="row align-items-center mt-5">
-                        <div className="col col-6 col-m-4">
-                            <span className="subTituloItem">Cantidad : </span><input type="number" defaultValue="1" className="cantP"/>
-                        </div>                    
-                        <div className="col col-6 col-m-4">
-                            <Button variant="secondary"><Carro color="white" size="25px"/> Agregar al Carrito</Button>
-                        </div> 
-                        <div className="col col-6 col-m-4">
-                            <Button variant="success"><Pagar color="white" size="25px"/> Ir a Pagar</Button>
-                        </div>                    
-                    </div>     
+                            {
+                                estaEnCarrito(id) 
+                                    ?   <>
+                                            <div className="col col-12">
+                                                <Link to="/carrito" className="btn btn-success mx-3"><Pagar color="white" size="25px"/> Ir Al Carrito</Link>
+                                                <Alert variant="success m-3">En el Carrito podrás Editar las Cantidades Seleccionadas de tu Compra.</Alert>
+                                            </div>
+                                        </>
+                                    :   <>
+                                            <div className="col col-xs-12 col-m-6">
+                                                <span className="subTituloItem">Cantidad : </span>
+                                                <Button variant="danger-outline mx-1" onClick={handleMenos}><FaMinus color="#FF305D" size="25px"/></Button>
+                                                <input type="number" className="cantP" value={cant} onChange={handleCant}/>
+                                                <Button variant="success-outline" onClick={handleMas}><FaPlus color="#FF305D" size="25px"/></Button>
+                                            </div>
+                                            <div className="col col-xs-12 col-m-6">
+                                                <Button variant="secondary" onClick={agregarCarro}><Carro color="white" size="25px"/> Agregar al Carrito</Button>
+                                            </div>
+                                        </>                    
+                            }
+                        
+                    </div>
+                    {
+                        excede 
+                            ? <Alert variant="danger m-3">No Podés seleccionar mas de {stock} Unidades</Alert>
+                            : <></>
+                    }
                     <div className="row align-items-center mt-5">                  
                         <div className="col col-12 col-4">
-                            <Button variant="secondary" onClick={() => goBack()}><Back color="white" size="25px"/> Volver Atras</Button>
+                            <Button variant="success" onClick={() => goBack()}><Back color="white" size="25px"/> Volver A Comprar</Button>
                         </div>                  
                     </div>                    
                 </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Item } from './Item'
 
 export const ItemsList = ({productos = []}) => {
+
     return  (
         <>
             {productos.length>0 

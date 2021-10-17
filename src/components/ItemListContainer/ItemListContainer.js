@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext} from "react";
-import { AppContext } from "../../application/provider";
+import { AppContext } from "../../context/BusquedaContext";
 import './ItemListContainer.css';
 import {pedirProductos} from '../../helpers/pedirProductos' 
 import { ItemsList } from "./itemsList";
