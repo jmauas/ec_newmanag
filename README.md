@@ -6,6 +6,10 @@ Aplicación de Ecommerce, totalmente integrada con el sistema de gestión NewMan
 
 Para porder probarlo, se puede descargar y utilizar el comando npm install. Automáticamente se instalarán todas las dependencias, y se podrá realizar las pruebas necesarias.
 
+## Ejemplo ⚙️
+
+Podes ver un ejemplo funcional en este link https://jmauas.github.io/ec_newmanag/
+
 ### Pre-requisitos 📋
 
 NodeJS y React Instalados.
