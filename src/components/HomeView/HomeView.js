@@ -5,7 +5,7 @@ import { AppContext } from '../../context/BusquedaContext';
 import { FaSearch, FaSync, FaShoppingCart as Carro } from 'react-icons/fa';
 import { Container, Row, Col, Toast, ToastContainer, Badge } from "react-bootstrap";
 import { CarritoContext } from "../../context/CarritoContext";
-import { Link, Redirect, useHistory, useLocation } from "react-router-dom";
+import { Link, Redirect, useLocation } from "react-router-dom";
 import 'animate.css';
 
 
@@ -15,15 +15,15 @@ export const HomeView = ({nombreEmpresa, urlLogoPpal}) => {
     const [buscar, setBuscar] = useContext(AppContext);
     const {carrito, calcularCantidad} = useContext(CarritoContext);
     const [show, setShow] = useState(false);
-    let history = useHistory();
     let location = useLocation();
 
     const handleInputChange = (e) => {
         setBusqueda(e.target.value)
     }
+    if (buscar.length<3) setBuscar('')
     const handleBtnBusqueda = () => {
         if (busqueda.length>=3) {
-            if (location.pathname =='/carrito') {
+            if (location.pathname ==='/carrito') {
                 <Redirect to="/"/>
             }
             handleBusqueda();
@@ -47,6 +47,7 @@ export const HomeView = ({nombreEmpresa, urlLogoPpal}) => {
     useEffect(() => {
         handleBusqueda();
     }, [busqueda])
+    
     useEffect(() => {
         if (carrito.length>0) setShow(true);
     }, [])

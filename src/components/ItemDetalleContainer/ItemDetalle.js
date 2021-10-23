@@ -7,7 +7,7 @@ import { CarritoContext } from '../../context/CarritoContext';
 import { Link } from 'react-router-dom';
 import { FormatosContext } from '../../context/FormatosContext';
 
-export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) => {
+export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock, sku} ) => {
     const {goBack} = useHistory();
     const [excede, setExcede] = useState(false);
     const [cant, setCant] = useState(1);
@@ -50,6 +50,7 @@ export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) 
              categ,
              descrip,
              stock,
+             sku,
              cantidad: cant
         }
         addToCarrito(nuevoItem);
@@ -67,7 +68,7 @@ export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock} ) 
                     </div>
                     <hr/>
                     <div className="row">
-                        <p className="subTituloItem">SKU {id} --- {categ}</p>
+                        <p className="subTituloItem">SKU {sku} --- {categ}</p>
                     </div>
                     <hr/>
                     <div className="row">

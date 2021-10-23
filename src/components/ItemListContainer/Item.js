@@ -5,7 +5,7 @@ import { FaPlus} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { FormatosContext } from '../../context/FormatosContext';
 
-export const Item = ( {id, nombre, precio, img, categ} ) => {
+export const Item = ( {id, nombre, precio, img, categ, sku} ) => {
     const {formatoSepMiles} = useContext(FormatosContext);
 
     return (
@@ -20,7 +20,7 @@ export const Item = ( {id, nombre, precio, img, categ} ) => {
                     <Link to={`/detalle/${id}`}>
                         <Button variant="secondary" className="botonCarro"><FaPlus color="#FF305D" size="25px"/> Ver Detalle</Button>
                     </Link>
-                    <Card.Text>{categ} SKU: {id}</Card.Text>
+                    <Card.Text>{categ} SKU: {sku}</Card.Text>
                 </Card.Body>
             </Card>
         </div>

@@ -18,7 +18,6 @@ import React from "react";
 function App() {
   const nombreEmpresa = 'Cotillón Casa Chiche';
   const urlLogoPpal = 'logo512.png';
-  const msgBusqueda = 'Cargando los Productos. Aguardá un Momento, Por Favor .....';
 
   return (
     <div className="App">
@@ -31,10 +30,10 @@ function App() {
                 <HomeView nombreEmpresa={nombreEmpresa} urlLogoPpal={urlLogoPpal} />
                 <Switch>
                   <Route exact path="/">
-                    <ItemListContainer msgBusqueda={msgBusqueda} />
+                    <ItemListContainer />
                   </Route>
                   <Route exact path="/productos/:category">
-                    <ItemListContainer msgBusqueda={msgBusqueda} />
+                    <ItemListContainer />
                   </Route>
                   <Route exact path="/detalle/:itemId">
                     <ItemDetalleContainer />

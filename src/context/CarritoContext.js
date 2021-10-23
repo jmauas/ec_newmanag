@@ -6,8 +6,8 @@ export const CarritoContext = createContext();
 const init = JSON.parse(localStorage.getItem('carrito')) || [];
 const CarritoProvider = ( {children} ) => {
   
-    const [carrito, setCarrito] = useState(init)
-  
+    const [carrito, setCarrito] = useState(init);
+     
     const addToCarrito = (item) => {
       setCarrito( [...carrito, item] );
       animarCarro(); 
@@ -20,22 +20,21 @@ const CarritoProvider = ( {children} ) => {
     }
 
     const cambiarCant = (itemId, nuevaCant) => {
-        itemId = Number(itemId);
-        nuevaCant = Number(nuevaCant)
-        let nuevoCarrito = carrito;
-        for (let i of nuevoCarrito) {
-            if (i.id === itemId) {
-                if (nuevaCant > i.stock) {
-                    i.cantidad = i.stock;
-                } else if (nuevaCant <= 0) {
-                    i.cantidad = 1;
-                } else {
-                    i.cantidad = nuevaCant;
-                }
+       nuevaCant = Number(nuevaCant)
+      let nuevoCarrito = carrito;
+      for (let i of nuevoCarrito) {
+        if (i.id === itemId) {
+            if (nuevaCant > i.stock) {
+                i.cantidad = i.stock;
+              } else if (nuevaCant <= 0) {
+                i.cantidad = 1;
+              } else {
+                i.cantidad = nuevaCant;
             }
         }
-        setCarrito([...nuevoCarrito]);
-        animarCarro();        
+      }
+      setCarrito([...nuevoCarrito]);
+      animarCarro();        
     }   
 
     const animarCarro = () => {

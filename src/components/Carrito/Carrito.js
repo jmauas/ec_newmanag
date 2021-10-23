@@ -16,7 +16,16 @@ export const Carrito = () => {
     const handleCant = (e) => {
         cambiarCant(e.target.name, e.target.value)
     }
-       
+
+    const styleBtn = (tipo, stock, cant) => {
+        let rsdo;
+        tipo === 1
+            ?
+                cant>=stock ? rsdo = "btn btn-danger sm mx-3" : rsdo = "btn btn-light sm mx-3"
+            :
+                cant<=1 ? rsdo = "btn btn-danger sm mx-3" : rsdo = "btn btn-light sm mx-3"
+        return rsdo
+    }       
     return (
         <>
             <Container>
@@ -40,21 +49,21 @@ export const Carrito = () => {
                             </thead> 
                             <tbody>
                                    {                                 
-                                        carrito.map((prod) => (
-                                            <tr key={prod.id} className="filaProducto" valign="middle">
-                                                <td><Link to={`/detalle/${prod.id}`}><img src={process.env.PUBLIC_URL+prod.img}  alt={prod.nombre} className="imgCarrito" /></Link></td>
-                                                <td><span className="mx-3">{prod.id}</span></td>
-                                                <td><span className="mx-3 nombreProductoCarrito">{prod.nombre}</span></td>
-                                                <td>
-                                                    <Button variant="light sm mx-3" onClick={() => cambiarCant(prod.id, prod.cantidad-1)}><FaMinus color="#FF305D" size="15px"/></Button>
-                                                    <input type="number" className="cantP" value={prod.cantidad} onChange={handleCant} name={prod.id}/>
-                                                    <Button variant="light sm mx-3" onClick={() => cambiarCant(prod.id, prod.cantidad+1)}><FaPlus color="#FF305D" size="15px"/></Button>
-                                                </td>
-                                                <td className="importeCarrito">$ {formatoSepMiles(prod.precio, 2)}</td>
-                                                <td className="importeCarrito">$ {formatoSepMiles(prod.cantidad * prod.precio, 0)}</td>
-                                                <td><Button variant="danger mx-3" onClick={() => removeItem(prod.id)}><Trash color="white" size="25px"/></Button></td>
-                                            </tr>                                        
-                                        ))
+                                    carrito.map((prod) => (
+                                        <tr key={prod.id} className="filaProducto" valign="middle">
+                                            <td><Link to={`/detalle/${prod.id}`}><img src={process.env.PUBLIC_URL+prod.img}  alt={prod.nombre} className="imgCarrito" /></Link></td>
+                                            <td><span className="mx-3">{prod.sku}</span></td>
+                                            <td><span className="mx-3 nombreProductoCarrito">{prod.nombre}</span></td>
+                                            <td>
+                                                <button className={styleBtn(-1, prod.stock, prod.cantidad)} onClick={() => cambiarCant(prod.id, prod.cantidad-1)}><FaMinus color="#FF305D" size="12px"/></button>
+                                                <input type="number" className="cantP" value={prod.cantidad} onChange={handleCant} name={prod.id}/>
+                                                <button className={styleBtn(1, prod.stock, prod.cantidad)} onClick={() => cambiarCant(prod.id, prod.cantidad+1)}><FaPlus color="#FF305D" size="12px"/></button>
+                                            </td>
+                                            <td className="importeCarrito">$ {formatoSepMiles(prod.precio, 2)}</td>
+                                            <td className="importeCarrito">$ {formatoSepMiles(prod.cantidad * prod.precio, 0)}</td>
+                                            <td><Button variant="danger mx-3" onClick={() => removeItem(prod.id)}><Trash color="white" size="25px"/></Button></td>
+                                        </tr>                                        
+                                    ))
                                     }                                    
                             </tbody>
                             <tfoot>

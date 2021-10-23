@@ -22,6 +22,7 @@
     text-transform: unset;
 }
 
+
 .precioDetalle {
     text-align: end;
     padding: 10px;
@@ -35,6 +36,7 @@
 .cantP {
     width: 60px;
     border:none;
+    text-align: center;
 }
 
 .descrip {
