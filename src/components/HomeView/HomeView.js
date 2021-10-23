@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState, useCallback} from "react";
 import './HomeView.css';
 import { NavLink } from 'react-router-dom';
 import { AppContext } from '../../context/BusquedaContext';
@@ -29,13 +29,17 @@ export const HomeView = ({nombreEmpresa, urlLogoPpal}) => {
             handleBusqueda();
         }
     }
-    const handleBusqueda = () => {
-        if (busqueda.length>=3) {
+    const handleBusqueda = useCallback(
+        () => {
+            if (busqueda.length>=3) {
             setBuscar(busqueda);
         } else {
             setBuscar('');
         }
-    }
+        },
+        [busqueda, setBuscar],
+    )
+    
     const handleLimpiar = () => {setBusqueda('')};
 
     const onKeyUp = (event) => {
@@ -45,12 +49,12 @@ export const HomeView = ({nombreEmpresa, urlLogoPpal}) => {
     }
 
     useEffect(() => {
-        handleBusqueda();
-    }, [busqueda])
+         
+    }, [busqueda, handleBusqueda])
     
     useEffect(() => {
         if (carrito.length>0) setShow(true);
-    }, [])
+    }, [carrito])
 
     return (
         <>
