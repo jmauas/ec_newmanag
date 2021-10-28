@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import './ItemDetalleContainer.css';
 import {pedirProducto} from '../../helpers/pedirProductos' 
 import { ItemDetalle } from "./ItemDetalle";
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { Loader } from "../Loader/Loader";
 
 export const ItemDetalleContainer = () => {
@@ -23,7 +23,13 @@ export const ItemDetalleContainer = () => {
             {
                 loading 
                 ? <Loader />
-                : <ItemDetalle {...item}/>    
+                : <>
+                    { 
+                        item.nombre===undefined
+                        ? <Redirect to="/"/>
+                        : <ItemDetalle {...item}/>    
+                    }
+                  </>
             }
         </>
     );

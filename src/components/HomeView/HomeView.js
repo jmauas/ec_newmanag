@@ -15,12 +15,15 @@ export const HomeView = ({nombreEmpresa, urlLogoPpal}) => {
     const [buscar, setBuscar] = useContext(AppContext);
     const {carrito, calcularCantidad} = useContext(CarritoContext);
     const [show, setShow] = useState(false);
+    const [shown, setShown] = useState(false);
     let location = useLocation();
 
     const handleInputChange = (e) => {
         setBusqueda(e.target.value)
     }
+
     if (buscar.length<3) setBuscar('')
+    
     const handleBtnBusqueda = () => {
         if (busqueda.length>=3) {
             if (location.pathname ==='/carrito') {
@@ -31,16 +34,17 @@ export const HomeView = ({nombreEmpresa, urlLogoPpal}) => {
     }
     const handleBusqueda = useCallback(
         () => {
-            if (busqueda.length>=3) {
-            setBuscar(busqueda);
-        } else {
-            setBuscar('');
-        }
-        },
-        [busqueda, setBuscar],
+                if (busqueda.length>=3) {
+                    setBuscar(busqueda);
+                } else {
+                    setBuscar('');
+                }
+              }, [busqueda, setBuscar],
     )
     
-    const handleLimpiar = () => {setBusqueda('')};
+    const handleLimpiar = () => {
+        setBusqueda('');
+    };
 
     const onKeyUp = (event) => {
         if (event.charCode === 13) {
@@ -49,12 +53,19 @@ export const HomeView = ({nombreEmpresa, urlLogoPpal}) => {
     }
 
     useEffect(() => {
-         
-    }, [busqueda, handleBusqueda])
+        if (busqueda.length>=3) {
+            setBuscar(busqueda);
+        } else if (busqueda.length===0) {
+            setBuscar('');
+        }
+    }, [busqueda, setBuscar])
     
     useEffect(() => {
-        if (carrito.length>0) setShow(true);
-    }, [carrito])
+        if (carrito.length>0 && shown===false) {
+            setShow(true);
+            setShown(true);
+        }
+    }, [carrito, shown])
 
     return (
         <>
