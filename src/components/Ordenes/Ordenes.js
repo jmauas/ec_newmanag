@@ -61,7 +61,7 @@ export const Ordenes = () => {
                                                             <td><span className="mx-3">{item.sku+' - '+item.nombre}</span></td>
                                                             <td className="importeResumen">{formatoSepMiles(item.cantidad, 0)}</td>
                                                             <td className="importeResumen">{formatoSepMiles(item.precio, 0)}</td>
-                                                            <td className="importeResumen">{formatoSepMiles(item.cantidad * item.precio, 0)}</td>
+                                                            <td className="importeResumen">{formatoSepMiles(Number(item.cantidad) * Number(item.precio), 0)}</td>
                                                         </tr>
                                                     ))
                                                 }

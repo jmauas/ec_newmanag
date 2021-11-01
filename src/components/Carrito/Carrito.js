@@ -61,7 +61,7 @@ export const Carrito = () => {
                                                         <button className={styleBtn(1, prod.stock, prod.cantidad)} onClick={() => cambiarCant(prod.id, prod.cantidad+1)}><FaPlus color="#FF305D" size="12px"/></button>
                                                     </td>
                                                     <td className="importeCarrito">$ {formatoSepMiles(prod.precio, 2)}</td>
-                                                    <td className="importeCarrito">$ {formatoSepMiles(prod.cantidad * prod.precio, 0)}</td>
+                                                    <td className="importeCarrito">$ {formatoSepMiles(Number(prod.cantidad) * (prod.precio), 0)}</td>
                                                     <td><Button variant="danger mx-3" onClick={() => removeItem(prod.id)}><Trash color="white" size="25px"/></Button></td>
                                                 </tr>                                        
                                             ))

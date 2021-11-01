@@ -50,11 +50,11 @@ const CarritoProvider = ( {children} ) => {
     }
   
     const calcularCantidad = () => {
-      return carrito.reduce( (acc, prod) => acc + prod.cantidad, 0 )
+      return carrito.reduce( (acc, prod) => acc + Number(prod.cantidad), 0 )
     }
 
     const calcularTotal = () => {
-      return carrito.reduce( (acc, prod) => acc + prod.cantidad * prod.precio, 0)
+      return carrito.reduce( (acc, prod) => acc + Number(prod.cantidad) * Number(prod.precio), 0)
     }
     const estaEnCarrito = (itemId) => {
       return carrito.some( (prod) => prod.id === itemId)
