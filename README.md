@@ -8,7 +8,7 @@ Para porder probarlo, se puede descargar y utilizar el comando npm install. Auto
 
 ## Ejemplo ⚙️
 
-Podes ver un ejemplo funcional en este link https://jmauas.github.io/ec_newmanag/, y asimismo ver un video donde muestro sus caracteristicas: https://youtu.be/1PWfdruGPrg
+Podes ver un ejemplo funcional en este link https://awesome-roentgen-a178a9.netlify.app o https://jmauas.github.io/ec_newmanag/, y asimismo ver un video donde muestro sus caracteristicas: https://youtu.be/1PWfdruGPrg
 
 ### Pre-requisitos 📋
 
