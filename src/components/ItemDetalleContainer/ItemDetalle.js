@@ -6,6 +6,7 @@ import { useHistory } from 'react-router';
 import { CarritoContext } from '../../context/CarritoContext';
 import { Link } from 'react-router-dom';
 import { FormatosContext } from '../../context/FormatosContext';
+import Swal from 'sweetalert2';
 
 export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock, sku} ) => {
     const {goBack} = useHistory();
@@ -42,18 +43,28 @@ export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock, sk
     }
 
     const agregarCarro = () => {
-        const nuevoItem = {
-             id,
-             nombre,
-             precio,
-             img,
-             categ,
-             descrip,
-             stock,
-             sku,
-             cantidad: cant
+        if (cant>0) {
+            const nuevoItem = {
+                id,
+                nombre,
+                precio,
+                img,
+                categ,
+                descrip,
+                stock,
+                sku,
+                cantidad: cant
+            }
+            addToCarrito(nuevoItem);
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'info',
+                title: 'Cantidad debe Ser mayor a 0.',
+                showConfirmButton: false,
+                timer: 1500
+              })
         }
-        addToCarrito(nuevoItem);
     }
    
     return (
