@@ -23,7 +23,7 @@ export const FormUsuario = ({enviar, loading}) => {
             <div className="container my-5">
                 <form onSubmit={handleSubmit}>
                     <div className="row align-items-center">
-                        <div className="col col-lg-4">
+                        <div className="col-lg-2 col-md-4 col-xs-12">
                             <input
                                 className="form-control m-2"
                                 type="text"
@@ -33,10 +33,10 @@ export const FormUsuario = ({enviar, loading}) => {
                                 onChange={handleInputChange}
                                 />
                         </div>
-                        <div className="col col-lg-2">
+                        <div className="col-2">
                             {usuario.nombre.length === 0 && <Badge pill bg="warning" text="dark">Nombre es obligatorio</Badge>}
                         </div>
-                        <div className="col col-lg-4">
+                        <div className="col-lg-2 col-md-4 col-xs-12">
                             <input
                                 className="form-control m-2"
                                 type="text"
@@ -46,13 +46,13 @@ export const FormUsuario = ({enviar, loading}) => {
                                 onChange={handleInputChange}
                                 />
                         </div>
-                        <div className="col col-lg-2">
+                        <div className="col-2">
                             {usuario.apellido.length === 0 && <Badge pill bg="warning" text="dark">Apellido es obligatorio</Badge>}
                         </div>
                     </div>
 
                     <div className="row align-items-center">
-                        <div className="col col-lg-4">
+                        <div className="col-lg-2 col-md-4 col-xs-12">
                             <input
                                 className="form-control m-2"
                                 type="email"
@@ -62,10 +62,10 @@ export const FormUsuario = ({enviar, loading}) => {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        <div className="col col-lg-2">
+                        <div className="col-2">
                             {usuario.email.length === 0 && <Badge pill bg="warning" text="dark">E-Mail es obligatorio</Badge>}
                         </div>
-                        <div className="col col-lg-4">
+                        <div className="col-lg-2 col-md-4 col-xs-12">
                             <input
                                 className="form-control m-2"
                                 type="tel"
@@ -75,13 +75,13 @@ export const FormUsuario = ({enviar, loading}) => {
                                 onChange={handleInputChange}
                             />
                          </div>
-                        <div className="col col-lg-2">
+                        <div className="col-2">
                             {usuario.tel.length === 0 && <Badge pill bg="warning" text="dark">Teléfono es obligatorio</Badge>}
                          </div>
                     </div>
 
                     <div className="row align-items-center">
-                        <div className="col col-lg-4">
+                        <div className="col-lg-2 col-md-4 col-xs-12">
                             <input
                                 className="form-control m-2"
                                 type="text"
@@ -91,10 +91,10 @@ export const FormUsuario = ({enviar, loading}) => {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        <div className="col col-lg-2">
+                        <div className="col-2">
                             {usuario.domicilio.length === 0 && <Badge pill bg="warning" text="dark">Domicilio es obligatorio</Badge>}                 
                         </div>
-                        <div className="col col-lg-4">
+                        <div className="col-lg-2 col-md-4 col-xs-12">
                             <input
                                 className="form-control m-2"
                                 type="text"
@@ -104,10 +104,10 @@ export const FormUsuario = ({enviar, loading}) => {
                                 onChange={handleInputChange}
                             />
                          </div>
-                        <div className="col col-lg-2">
+                        <div className="col-2">
                             {usuario.localidad.length === 0 && <Badge pill bg="warning" text="dark">Localidad es obligatorio</Badge>}
                         </div>
-                        <div className="col col-lg-4">
+                        <div className="col-lg-2 col-md-4 col-xs-12">
                             <input
                                 className="form-control m-2"
                                 type="text"
@@ -117,10 +117,10 @@ export const FormUsuario = ({enviar, loading}) => {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        <div className="col col-lg-2">
+                        <div className="col-2">
                             {usuario.provincia.length === 0 && <Badge pill bg="warning" text="dark">Provincia es obligatorio</Badge>}
                         </div>
-                        <div className="col col-lg-4">
+                        <div className="col-lg-2 col-md-4 col-xs-12">
                             <input
                                 className="form-control m-2"
                                 type="number"
@@ -130,7 +130,7 @@ export const FormUsuario = ({enviar, loading}) => {
                                 onChange={handleInputChange}
                             />
                         </div>
-                        <div className="col col-lg-2">
+                        <div className="col-2">
                             {usuario.dni.length < 7 && <Badge pill bg="warning" text="dark">DNI es obligatorio</Badge>}
                         </div>
                     </div>
