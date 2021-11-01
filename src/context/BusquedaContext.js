@@ -1,14 +1,31 @@
 import React, {createContext, useState} from "react";
 
-const Busqueda = (props) => {
-    const [state, setState] = useState('');
+export const BusquedaContext  = createContext();
+
+const BusquedaProvider = ( {children} ) => {
+    const [busqueda, setBusqueda] = useState('');
+    
+    const [usuario, setUsuario] = useState({
+        nombre: '',
+        apellido: '',
+        email: '',
+        tel: '',
+        domicilio: '',
+        localidad: '',
+        provincia: '',
+        dni: ''
+    })
     return (
         <>
-            <AppContext.Provider value={[state,setState]}>
-                {props.children};
-            </AppContext.Provider>
+            <BusquedaContext.Provider value={{
+                busqueda,
+                setBusqueda,
+                usuario,
+                setUsuario
+            }}>
+                {children};
+            </BusquedaContext.Provider>
         </>
     );
 }
-export default Busqueda;
-export const AppContext  = createContext();
+export default BusquedaProvider;

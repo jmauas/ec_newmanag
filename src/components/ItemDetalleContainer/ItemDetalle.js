@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import './ItemDetalleContainer.css';
-import {Alert, Button} from 'react-bootstrap'
+import { Alert, Button} from 'react-bootstrap'
 import { FaCartPlus as Carro, FaBackspace as Back, FaCashRegister as Pagar, FaPlus, FaMinus } from 'react-icons/fa';
 import { useHistory } from 'react-router';
 import { CarritoContext } from '../../context/CarritoContext';
@@ -10,7 +10,7 @@ import { FormatosContext } from '../../context/FormatosContext';
 export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock, sku} ) => {
     const {goBack} = useHistory();
     const [excede, setExcede] = useState(false);
-    const [cant, setCant] = useState(1);
+    const [cant, setCant] = useState(0);
     const {addToCarrito, estaEnCarrito} = useContext(CarritoContext);
     const {formatoSepMiles} = useContext(FormatosContext);
 
@@ -33,7 +33,7 @@ export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock, sk
             setExcede(true);
             setCant(stock)
         } else if (e.target.value<=0){
-            setCant(1);
+            setCant(0);
             setExcede(false);
         } else {
             setCant(e.target.value)

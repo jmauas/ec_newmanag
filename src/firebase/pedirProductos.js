@@ -1,4 +1,4 @@
-import { getFirestore } from "../firebase/config"
+import { getFirestore } from "./config"
 
 export  const pedirProductos = (category, res) => {
     const db = getFirestore();

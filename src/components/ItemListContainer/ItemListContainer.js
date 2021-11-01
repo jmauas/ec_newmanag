@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useContext} from "react";
-import { AppContext } from "../../context/BusquedaContext";
+import { BusquedaContext } from "../../context/BusquedaContext";
 import './ItemListContainer.css';
-import {pedirProductos} from '../../helpers/pedirProductos' 
+import {pedirProductos} from '../../firebase/pedirProductos' 
 import { ItemsList } from "./itemsList";
 import { useParams } from 'react-router-dom';
 import { Loader } from "../Loader/Loader";
@@ -10,18 +10,18 @@ import { Loader } from "../Loader/Loader";
 export const ItemListContainer = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState([]);
-    const [aBuscar, setABuscar] = useContext(AppContext);
+    const {busqueda, setBusqueda} = useContext(BusquedaContext);
     let {category} = useParams();
 
     if (category===undefined) category='';
-    if (aBuscar===undefined) setABuscar('');
+    if (busqueda===undefined) setBusqueda('');
     useEffect(() => {
         setLoading(true);
         pedirProductos(category, (res) => {
             let filtrado = [];    
-            if (aBuscar !== '') {
+            if (busqueda !== '') {
                 for (let i of res) {
-                    if (i.nombre.toString().toLowerCase().indexOf(aBuscar.toLowerCase()) >=0) {
+                    if (i.nombre.toString().toLowerCase().indexOf(busqueda.toLowerCase()) >=0) {
                         filtrado.push(i);
                     }
                 }
@@ -31,7 +31,7 @@ export const ItemListContainer = () => {
             setItems( filtrado ); 
             setLoading(false);
         });
-    }, [category, aBuscar])
+    }, [category, busqueda])
 
 
     return (

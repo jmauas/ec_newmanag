@@ -60,39 +60,43 @@ const CarritoProvider = ( {children} ) => {
       return carrito.some( (prod) => prod.id === itemId)
     }
   
-    const vaciarCarrito = () => {
-      Swal.fire({
-          title: "Confirmación",
-          text: "Se Van a Eliminar Todos los Productos del Carrito",
-          icon: 'question',
-          showCancelButton: true,
-          confirmButtonText: "Sí, Eliminar",
-          cancelButtonText: "Cancelar",
-          confirmButtonColor: 'red',
-          cancelButtonColor: 'gray',
-      })
-      .then(resultado => {
-          if (resultado.value) {
-            // Hicieron click en "Sí"
-            setCarrito([]);
-            Swal.fire({
-              position: 'center',
-              icon: 'info',
-              title: 'Carrito Vaciado.',
-              showConfirmButton: false,
-              timer: 1500
-            })
-          } else {
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'El Carrito No se Eliminó.',
-              showConfirmButton: false,
-              timer: 1500
-            })
-              
-          }
-      });
+    const vaciarCarrito = (pregunta) => {
+      if (pregunta) {
+        Swal.fire({
+            title: "Confirmación",
+            text: "Se Van a Eliminar Todos los Productos del Carrito",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: "Sí, Eliminar",
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: 'red',
+              cancelButtonColor: 'gray',
+          })
+          .then(resultado => {
+              if (resultado.value) {
+                // Hicieron click en "Sí"
+                setCarrito([]);
+                Swal.fire({
+                  position: 'center',
+                  icon: 'info',
+                  title: 'Carrito Vaciado.',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+              } else {
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'El Carrito No se Eliminó.',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+                  
+              }
+          });
+      } else {
+        setCarrito([]);
+      }
     }
     
     useEffect(()=>{
