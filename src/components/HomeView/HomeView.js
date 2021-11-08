@@ -87,14 +87,14 @@ export const HomeView = ({nombreEmpresa, urlLogoPpal}) => {
                                     <h1 className="tituloPpal">{nombreEmpresa}</h1>
                                 </Row>
                                 <Row className="filaBusqueda">
-                                    <Col className="col col-xl-4 col-lg-6 col-m-12 col-sm-12">
+                                    <Col className="col col-xl-4 col-lg-6 col-md-12 col-sm-12">
                                         <input type="text" className="textoBusqueda" placeholder="Ingrese Texto a Buscar" value={palabra} onKeyPress={onKeyUp} onChange={handleInputChange}/>
                                     </Col>
-                                    <Col className="col col-xl-3 col-lg-4 col-m-6 col-sm-12">
+                                    <Col className="col col-xl-3 col-lg-4 col-md-6 col-sm-12">
                                         <button className="btn btn-secondary" onClick={handleBtnBusqueda}><FaSearch/> Buscar</button>
                                         <button className="btn btn-secondary m-2" id="btnLimpiar" onClick={handleLimpiar}><FaSync/> Limpiar</button>
                                     </Col>
-                                    <Col className="col col-xl-1 col-lg-1 col-m-2 col-sm-2">
+                                    <Col className="col col-xl-1 col-lg-1 col-md-2 col-sm-2">
                                         {
                                             calcularCantidad()
                                              ?
@@ -105,7 +105,7 @@ export const HomeView = ({nombreEmpresa, urlLogoPpal}) => {
                                             :<></>
                                         }
                                     </Col>
-                                    <Col className="col col-xl-3 col-lg-3 col-m-2 col-sm-2">                                       
+                                    <Col className="col col-xl-3 col-lg-3 col-md-2 col-sm-2">                                       
                                         <UserAuthenticate/>
                                     </Col>
                                 </Row>

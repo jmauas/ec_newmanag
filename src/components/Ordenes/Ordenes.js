@@ -1,5 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import '../Carrito/Carrito.css';
+import './Ordenes.css';
 import { useHistory } from 'react-router';
 import { FormatosContext } from '../../context/FormatosContext';
 import { Container, Alert, Table, Button, } from "react-bootstrap";
@@ -13,13 +14,14 @@ export const Ordenes = () => {
     const {goBack} = useHistory();
     const [orders, setOrders] = useState([]);
     const {usuario} = useContext(BusquedaContext);
+    let count = 1;
 
 
     useEffect(() => {
         pedirOrdenes(usuario.email, (res) => {
             setOrders(res);
         })       
-    }, [orders, setOrders, usuario.email])
+    }, [setOrders, usuario.email])
   
     return (
         <>
@@ -33,23 +35,25 @@ export const Ordenes = () => {
                         :    
                             <>           
                             <Table bordered hover variant="success" size="sm">
-                                    {        
+                                    {   
                                         orders.map((order) => (
                                             <>
                                             <thead>
-                                                <tr>
-                                                    <th colSpan="2">Fecha Órden</th>
+                                                <tr key="titulo">
+                                                    <th colSpan="1">Fecha Órden</th>
+                                                    <th colSpan="1">ID</th>
                                                     <th>Cantidad Items</th>
                                                     <th>Total Órden</th>
                                                 </tr>
                                             </thead> 
                                             <tbody>
-                                                <tr key={order.id} className="filaProducto" valign="middle">
-                                                    <td colSpan="2"><span className="mx-3">{order.date.toDate().toLocaleString('en-GB', { timeZone: 'UTC' })}</span></td>
+                                                <tr key={order.doc.id} className="filaProducto" valign="middle">
+                                                    <td colSpan="1"><span className="mx-3">{order.date.toDate().toLocaleString('en-GB', { timeZone: 'UTC' })}</span></td>
+                                                    <td colSpan="1"><span className="mx-3 textoID">{order.doc.id}</span></td>
                                                     <td className="importeCarrito">{formatoSepMiles(order.cantTotal, 0)}</td>
                                                     <td className="importeCarrito">{formatoSepMiles(order.total, 0)}</td>
                                                 </tr>
-                                                <tr>
+                                                <tr key={order.doc.id+'titulo'}>
                                                     <th>Producto</th>
                                                     <th>Cantidad</th>
                                                     <th>Precio</th>
@@ -65,12 +69,13 @@ export const Ordenes = () => {
                                                         </tr>
                                                     ))
                                                 }
-                                                <tr className="table table-dark" valign="middle">
+                                                <tr key={'separador'+count} className="table table-dark" valign="middle">
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
+                                                {count++}
                                             </tbody>
                                             </>                              
                                         ))

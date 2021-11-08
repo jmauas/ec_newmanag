@@ -6,8 +6,8 @@ export  const pedirOrdenes = (mail, res) => {
     ordenes.get()
         .then((response) => {
             const order = response.docs.map((doc) => {
-                return {...doc.data()}
+                return {...doc.data(), doc}
             })
-            res(order);
+             res(order);
         })  
 }

@@ -99,13 +99,13 @@ export const ItemDetalle = ( {id, nombre, precio, img, categ, descrip, stock, sk
                                             </div>
                                         </>
                                     :   <>
-                                            <div className="col col-xs-12 col-m-6">
+                                            <div className="col col-xs-12 col-md-6">
                                                 <span className="subTituloItem">Cantidad : </span>
                                                 <Button variant="danger-outline mx-1" onClick={handleMenos}><FaMinus color="#FF305D" size="25px"/></Button>
                                                 <input type="number" className="cantP" value={cant} onChange={handleCant}/>
                                                 <Button variant="success-outline" onClick={handleMas}><FaPlus color="#FF305D" size="25px"/></Button>
                                             </div>
-                                            <div className="col col-xs-12 col-m-6">
+                                            <div className="col col-xs-12 col-md-6">
                                                 <Button variant="secondary" onClick={agregarCarro}><Carro color="white" size="25px"/> Agregar al Carrito</Button>
                                             </div>
                                         </>                    

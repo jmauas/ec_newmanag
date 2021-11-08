@@ -10,7 +10,7 @@ export  const pedirProductos = (category, res) => {
                             db.collection('productos')                    
         productos.get()
             .then((response) => {
-                const items = response.docs.map((doc) => {
+                   const items = response.docs.map((doc) => {
                     return {id: doc.id, ...doc.data()}
                 })
                 res(items);
