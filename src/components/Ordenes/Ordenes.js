@@ -14,8 +14,6 @@ export const Ordenes = () => {
     const {goBack} = useHistory();
     const [orders, setOrders] = useState([]);
     const {usuario} = useContext(BusquedaContext);
-    let count = 1;
-
 
     useEffect(() => {
         pedirOrdenes(usuario.email, (res) => {
@@ -69,13 +67,19 @@ export const Ordenes = () => {
                                                         </tr>
                                                     ))
                                                 }
-                                                <tr key={'separador'+count} className="table table-dark" valign="middle">
+                                              
+                                                <tr key={'separador1'+order.doc.id} className="table table-dark" valign="middle">
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
-                                                {count++}
+                                                <tr key={'separador2'+order.doc.id} className="table table-ligth separadorFila" valign="middle">
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
                                             </tbody>
                                             </>                              
                                         ))
